@@ -1,20 +1,31 @@
-import React from "react";
-import Header from "./components/Header";
-import Navigation from "./components/Navigation";
-import Homepage from "./page/Homepage";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import HomePage from "./page/HomePage";
 import PostDetailPage from "./page/PostDetailPage";
-import { Routes, Route } from "react-router-dom";
+import Header from "./components/Header";
+import HeaderDetail from "./components/HeaderDetail";
 
 function App() {
   return (
-    <div>
-      <Header />
-      <Navigation />
       <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route path="/post/:postid" element={<PostDetailPage />} />
+        <Route
+          path="/"
+          element={
+            <>
+              <Header />
+              <HomePage />
+            </>
+          }
+        />
+        <Route
+          path="/post/:postid"
+          element={
+            <>
+              <HeaderDetail />
+              <PostDetailPage />
+            </>
+          }
+        />
       </Routes>
-    </div>
   );
 }
 
